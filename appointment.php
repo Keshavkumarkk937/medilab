@@ -30,7 +30,7 @@ if (!$cn) {
 
 <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-  <form action="forms/appointment.php" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+  <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
     <div class="row">
       <div class="col-md-4 form-group">
         <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -42,13 +42,22 @@ if (!$cn) {
         <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
       </div>
     </div>
+
     <div class="row">
       <div class="col-md-4 form-group mt-3">
         <input type="datetime-local" name="date" class="form-control" id="date" required>
       </div>
+
       <div class="col-md-4 form-group mt-3">
-        <input type="file" name="file" class="form-control" placeholder="Submit your report">
+        <select name="end_time" id="end_time" class="form-select" required>
+          <option value="">Select Duration</option>
+          <option value="15">15 Minutes</option>
+          <option value="30">30 Minutes</option>
+          <option value="45">45 Minutes</option>
+          <option value="60">1 Hour</option>
+        </select>
       </div>
+
       <div class="col-md-4 form-group mt-3">
         <select name="doctor" id="doctor" class="form-select" required>
           <option value="">Select Doctor</option>
@@ -65,6 +74,7 @@ if (!$cn) {
     <div class="form-group mt-3">
       <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
     </div>
+
     <div class="mt-3">
       <div class="loading">Loading</div>
       <div class="error-message"></div>

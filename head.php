@@ -4,7 +4,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <link rel="stylesheet" type="text/css" href="style/css/bootstrap.min.css">
-	<script type="text/javascript" src="style/js/bootstrap.bundle.min"></script>
+	<!-- <script type="text/javascript" src="style/js/bootstrap.bundle.min"></script> -->
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
