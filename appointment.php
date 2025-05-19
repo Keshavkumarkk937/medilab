@@ -30,13 +30,13 @@ if (!$cn) {
 
 <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-  <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+  <form action="appointment.php" method="post" role="form" class="form">
     <div class="row">
       <div class="col-md-4 form-group">
         <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
       </div>
       <div class="col-md-4 form-group mt-3 mt-md-0">
-        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+        <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" required>
       </div>
       <div class="col-md-4 form-group mt-3 mt-md-0">
         <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
