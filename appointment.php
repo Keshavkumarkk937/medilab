@@ -116,15 +116,15 @@ if (isset($_POST['title']) && isset($_POST['doctor'])) {
         <select name="doctor" id="doctor" class="form-select" required>
           <option value="">Select Doctor</option>
           <?php
-         $doctors = [];
-         $query2 = mysqli_query($cn, "SELECT * FROM doctors");
-         
-         while ($row = mysqli_fetch_assoc($query2)) {
-             $doctors[] = $row;
-         }
-         foreach ($doctors as $doctor) {
-          echo '<option value="' . htmlspecialchars($doctor['id']) . '">' . ucwords(htmlspecialchars($doctor['name'])) . '</option>';
-      }
+            $doctors = [];
+            $query2 = mysqli_query($cn, "SELECT * FROM doctors");
+            
+            while ($row = mysqli_fetch_assoc($query2)) {
+                $doctors[] = $row;
+            }
+            foreach ($doctors as $doctor) {
+              echo '<option value="' . htmlspecialchars($doctor['id']) . '">' . ucwords(htmlspecialchars($doctor['name'])) . '</option>';
+            }
           ?>
         </select>
       </div>

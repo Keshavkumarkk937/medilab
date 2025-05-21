@@ -21,7 +21,7 @@
           </a>
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li><a href="#hero" class="active">Home<br></a></li>
+              <li><a href="index.php" class="active">Home<br></a></li>
               <li><a href="about.php">About</a></li>
               <li><a href="service.php">Services</a></li>
               <li><a href="department.php">Departments</a></li>
@@ -29,10 +29,10 @@
               <li><a href="review.php">Testimonials</a></li>
               <li><a href="contact.php">Contact</a></li>
               <?php 
-                if(isset($_SESSION['user'])){ ?>
-                  <li><a href="http://localhost/Medilab/actions.php?action=logout">Logout</a></li>
+                    if (isset($_SESSION['user']) || isset($_SESSION['doctor'])) { ?>
+                        <li><a href="http://localhost/Medilab/actions.php?action=logout">Logout</a></li>
 
-              <?php }else { ?>
+              <?php } else { ?>
                   <li><a href="http://localhost/Medilab/login.php">Login</a></li>
 
               <?php } ?>

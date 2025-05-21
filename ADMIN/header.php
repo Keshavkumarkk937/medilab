@@ -16,7 +16,7 @@
         </a>
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="#hero" class="active">Home<br></a></li>
+            <li><a href="#hero" class="active">Doctor<br></a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="service.php">Services</a></li>
             <li><a href="department.php">Departments</a></li>
