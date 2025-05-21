@@ -23,11 +23,11 @@
             <li><a href="doctors.php">Doctors</a></li>
             <li><a href="review.php">Testimonials</a></li>
             <li><a href="contact.php">Contact</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="#">Logout</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-        <a class="cta-btn d-none d-sm-block" href="appointment.php">Make an Appointment</a>
+        <a class="cta-btn d-none d-sm-block" href="#">View Appointments</a>
 
       </div>
 
