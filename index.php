@@ -10,10 +10,7 @@ session_start();
 <?php include('header.php'); ?>
   <main class="main">
     <!-- Hero Section -->
-    <?php 
-      if(isset($_SESSION));
-      print_r($_SESSION);
-      ?>
+   
     <section id="hero" class="hero section light-background">
 
       <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">

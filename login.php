@@ -17,8 +17,13 @@ if (isset($_POST['submit'])) {
 
     if ($user) {
         if ($user['password'] === $password) { // plain-text check for now
-            $_SESSION['admin'] = $user['name']; // Store admin's name in the session
-            header("Location: index.php");
+          $_SESSION['user'] = [
+            'id' => $user['id'],
+            'name' => $user['name'],
+            //'email' => $user['email']
+          ]; // Store user's data in the session
+            
+          header("Location: index.php");
             exit;
         } else {
             $error = "Incorrect password!";
@@ -76,8 +81,9 @@ if (isset($_POST['submit'])) {
           <div class="col-md-12 text-center">
             <button type="submit" name="submit" class="btn btn-primary" style="border-radius: 20px; padding: 10px 15px 10px 15px;">Login</button>
           </div>
-
-        </div>
+          <div class="col-md-12 text-center">
+                                <p>Looking for doctor login? Click <a href="doctor_login.php">here</a>.</p>
+                            </div>
       </form>
     </div><!-- End Contact Form -->
 

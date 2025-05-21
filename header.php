@@ -1,3 +1,8 @@
+<?php 
+  session_start();
+  if (isset($_SESSION)) { 
+  print_r($_SESSION);}// to know user is logged in or not (for debugging)
+?>
 <header id="header" class="header sticky-top">
   <div class="topbar d-flex align-items-center">
         <div class="container d-flex justify-content-center justify-content-md-between">
@@ -24,7 +29,7 @@
               <li><a href="review.php">Testimonials</a></li>
               <li><a href="contact.php">Contact</a></li>
               <?php 
-                if(isset($_SESSION['admin'])){ ?>
+                if(isset($_SESSION['user'])){ ?>
                   <li><a href="http://localhost/Medilab/actions.php?action=logout">Logout</a></li>
 
               <?php }else { ?>
