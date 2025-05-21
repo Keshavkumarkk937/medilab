@@ -51,8 +51,7 @@ $doctor = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="style/css/bootstrap.min.css">
     <?php include('head.php'); ?>
     <style>
-        /* .container { max-width: 700px; margin-top: 30px; }
-        .form-group { margin-bottom: 15px; } */
+        .form-group { margin-bottom: 15px; } 
         img { max-height: 120px; }
     </style>
 </head>
