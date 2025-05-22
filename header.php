@@ -2,6 +2,7 @@
   session_start();
   if (isset($_SESSION)) { 
   print_r($_SESSION);}// to know user is logged in or not (for debugging)
+  date_default_timezone_set('Asia/Kolkata'); // set your timezone here
 ?>
 <header id="header" class="header sticky-top">
   <div class="topbar d-flex align-items-center">

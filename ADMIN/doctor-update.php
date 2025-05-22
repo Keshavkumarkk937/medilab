@@ -1,46 +1,46 @@
 <?php
-session_start();
-if (!isset($_SESSION['doctor_id'])) {
-    header("Location: login.php");
-    exit();
-}
-
-$doctor_id = $_SESSION['doctor_id'];
-$conn = mysqli_connect("localhost", "root", "", "medilab");
-
-// Handle Update
-if (isset($_POST["update"])) {
-    $pic = $_POST["existing_pic"];
-    if ($_FILES["pic"]["name"] != "") {
-        $pic = $_FILES["pic"]["name"];
-        $target = "img/" . $pic;
-        move_uploaded_file($_FILES["pic"]["tmp_name"], $target);
+    session_start();
+    if (!isset($_SESSION['doctor_id'])) {
+        header("Location: login.php");
+        exit();
     }
 
-    $sql = "UPDATE doctors SET 
-        name = '{$_POST['name']}',
-        designation = '{$_POST['designation']}',
-        specialization = '{$_POST['specialization']}',
-        experience_in_years = {$_POST['experience_in_years']},
-        email = '{$_POST['email']}',
-        password = '{$_POST['password']}',
-        phone = '{$_POST['phone']}',
-        location = '{$_POST['location']}',
-        bio = '{$_POST['bio']}',
-        appointment_duration = {$_POST['appointment_duration']},
-        pic = '{$pic}'
-        WHERE id = {$doctor_id}";
+    $doctor_id = $_SESSION['doctor_id'];
+    $conn = mysqli_connect("localhost", "root", "", "medilab");
 
-    if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Profile updated successfully.');</script>";
-    } else {
-        echo "<script>alert('Update failed.');</script>";
+    // Handle Update
+    if (isset($_POST["update"])) {
+        $pic = $_POST["existing_pic"];
+        if ($_FILES["pic"]["name"] != "") {
+            $pic = $_FILES["pic"]["name"];
+            $target = "img/" . $pic;
+            move_uploaded_file($_FILES["pic"]["tmp_name"], $target);
+        }
+
+        $sql = "UPDATE doctors SET 
+            name = '{$_POST['name']}',
+            designation = '{$_POST['designation']}',
+            specialization = '{$_POST['specialization']}',
+            experience_in_years = {$_POST['experience_in_years']},
+            email = '{$_POST['email']}',
+            password = '{$_POST['password']}',
+            phone = '{$_POST['phone']}',
+            location = '{$_POST['location']}',
+            bio = '{$_POST['bio']}',
+            appointment_duration = {$_POST['appointment_duration']},
+            pic = '{$pic}'
+            WHERE id = {$doctor_id}";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Profile updated successfully.');</script>";
+        } else {
+            echo "<script>alert('Update failed.');</script>";
+        }
     }
-}
 
-// Fetch doctor details
-$result = mysqli_query($conn, "SELECT * FROM doctors WHERE id = $doctor_id");
-$doctor = mysqli_fetch_assoc($result);
+    // Fetch doctor details
+    $result = mysqli_query($conn, "SELECT * FROM doctors WHERE id = $doctor_id");
+    $doctor = mysqli_fetch_assoc($result);
 ?>
 
 <!DOCTYPE html>
