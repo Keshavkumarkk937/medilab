@@ -1,5 +1,8 @@
-<?php 
-  session_start();
+<?php
+session_start();
+$isUser = isset($_SESSION['user']);
+$isDoctor = isset($_SESSION['doctor']);
+
   if (isset($_SESSION)) { 
   print_r($_SESSION);}// to know user is logged in or not (for debugging)
   date_default_timezone_set('Asia/Kolkata'); // set your timezone here
@@ -21,26 +24,32 @@
             <h1 class="sitename">Carewell</h1>
           </a>
           <nav id="navmenu" class="navmenu">
-            <ul>
-              <li><a href="index.php" class="active">Home<br></a></li>
-              <li><a href="about.php">About</a></li>
-              <li><a href="service.php">Services</a></li>
-              <li><a href="department.php">Departments</a></li>
-              <li><a href="doctors.php">Doctors</a></li>
-              <li><a href="review.php">Testimonials</a></li>
-              <li><a href="contact.php">Contact</a></li>
-              <?php 
-                    if (isset($_SESSION['user']) || isset($_SESSION['doctor'])) { ?>
-                        <li><a href="http://localhost/Medilab/actions.php?action=logout">Logout</a></li>
+  <ul>
+    <li><a href="index.php">Home</a></li>
 
-              <?php } else { ?>
-                  <li><a href="http://localhost/Medilab/login.php">Login</a></li>
+    <?php if ($isUser): ?>
+      <li><a href="doctors.php">Doctors</a></li>
+      <li><a href="appointment.php">Book Appointment</a></li>
+      <li><a href="my_appointments.php">My Appointments</a></li>
+      <li><a href="profile.php">My Profile</a></li>
+      <li><a href="http://localhost/Medilab/actions.php?action=logout">Logout</a></li>  
+      <a class="cta-btn d-none d-sm-block" href="appointment.php">Make an Appointment</a>
 
-              <?php } ?>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
-          <a class="cta-btn d-none d-sm-block" href="appointment.php">Make an Appointment</a>
+    
+      <?php elseif ($isDoctor): ?>
+      <li><a href="patients.php">My Patients</a></li>
+      <li><a href="schedule.php">Manage Schedule</a></li>
+      <li><a href="doctor_profile.php">Profile</a></li>
+      <li><a href="http://localhost/Medilab/actions.php?action=logout">Logout</a></li>  
+      <a class="cta-btn d-none d-sm-block" href="appointments.php">Appointments</a>
+
+    <?php else: ?>
+      <li><a href="login.php">Login</a></li>
+      <li><a href="register.php">Register</a></li>
+    <?php endif; ?>
+  </ul>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+</nav>
 
         </div>
   </div>

@@ -214,7 +214,7 @@ session_start();
           <div class="swiper-slide">
           <?php
                         $cn=mysqli_connect("localhost","root","","medilab");
-                        $a=mysqli_query($cn,"select * from review");
+                        $a=mysqli_query($cn,"select * from review LIMIT 2");
                         while($r=mysqli_fetch_array($a))
                         {
                             ?>

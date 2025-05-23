@@ -16,13 +16,11 @@
         </a>
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="#hero" class="active">Doctor<br></a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="service.php">Services</a></li>
-            <li><a href="department.php">Departments</a></li>
-            <li><a href="doctors.php">Doctors</a></li>
-            <li><a href="review.php">Testimonials</a></li>
-            <li><a href="contact.php">Contact</a></li>
+          <li><a href="doctor_dashboard.php">Dashboard</a></li>
+      <li><a href="appointments.php">Appointments</a></li>
+      <li><a href="patients.php">My Patients</a></li>
+      <li><a href="schedule.php">Manage Schedule</a></li>
+      <li><a href="doctor_profile.php">Profile</a></li>
             <li><a href="#">Logout</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

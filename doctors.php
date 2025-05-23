@@ -54,30 +54,35 @@
 
   <div class="container">
     <div class="row gy-4">
-
     <?php
-      $cn = mysqli_connect("localhost", "root", "", "Medilab");
-      $query = mysqli_query($cn, "SELECT * FROM doctors");
-      while ($r = mysqli_fetch_assoc($query)) {
-    ?>
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative doctor-card">
-          <div class="service-img text-center">
-            <img class="img-fluid" src="ADMIN/img/<?php echo htmlspecialchars($r['pic']); ?>" alt="Doctor Image">
-          </div>
-          <h3 class="pt-3 text-center"><?php echo ucwords(htmlspecialchars($r['name'])); ?></h3>
-          <p>Education: <?php echo htmlspecialchars($r['designation']); ?></p>
-          <p>Specialization: <?php echo htmlspecialchars($r['specialization']); ?></p>
-          <p>Experience in Years: <?php echo htmlspecialchars($r['experience_in_years']); ?></p>
-          <p>Email: <?php echo htmlspecialchars($r['email']); ?></p>
-          <p>Contact No: <?php echo htmlspecialchars($r['phone']); ?></p>
-          <div class="col-md-12 text-center">
-            <button type="submit" name="submit" class="btn btn-primary" style="border-radius: 20px; padding: 10px 45px 10px 45px;">Book</button>
-          </div>
-        </div>
-        
+  $cn = mysqli_connect("localhost", "root", "", "Medilab");
+
+  // Join doctors with departments using dept_id
+  $query = mysqli_query($cn, "
+    SELECT doctors.*, department.name AS department_name 
+    FROM doctors 
+    LEFT JOIN department ON doctors.dept_id = department.dept_id
+  ");
+
+  while ($r = mysqli_fetch_assoc($query)) {
+?>
+  <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+    <div class="service-item position-relative doctor-card">
+      <div class="service-img text-center">
+        <img class="img-fluid" src="ADMIN/img/<?php echo htmlspecialchars($r['pic']); ?>" alt="Doctor Image">
       </div>
-    <?php } ?>
+      <h3 class="pt-3 text-center"><?php echo ucwords(htmlspecialchars($r['name'])); ?></h3>
+      <p>Education: <?php echo htmlspecialchars($r['education']); ?></p>
+      <p>Specialization: <?php echo htmlspecialchars($r['department_name']); ?></p>
+      <p>Experience in Years: <?php echo htmlspecialchars($r['experience_in_years']); ?></p>
+      <p>Email: <?php echo htmlspecialchars($r['email']); ?></p>
+      <p>Contact No: <?php echo htmlspecialchars($r['phone']); ?></p>
+      <div class="col-md-12 text-center">
+        <button type="submit" name="submit" class="btn btn-primary" style="border-radius: 20px; padding: 10px 45px;">Book</button>
+      </div>
+    </div>
+  </div>
+<?php } ?>
 
     </div>
   </div>

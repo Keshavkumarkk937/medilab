@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
 
 <!-- Section Title -->
 <div class="container section-title" data-aos="fade-up">
-  <h2>Login</h2>
+  <h2>User Login</h2>
   <p>Login to our website to access more features. Your data will be kept safe and private.</p>
   <?php 
   if(isset($error));
